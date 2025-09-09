@@ -23,11 +23,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@master
       - name: Install Emacs-CI
-        run: git clone https://github.com/countvajhula/emacs-ci.git
+        run: git clone -b debug-ci https://github.com/countvajhula/emacs-ci.git
       - name: Bootstrap Straight.el
         run: make bootstrap
       - name: Install Package and its Dependencies
-        run: make install
+        run: |
+          make install
+          echo $(ls emacs-ci/ci-init/straight/build)
       - name: Lint
         continue-on-error: true
         run: make lint
@@ -35,4 +37,6 @@ jobs:
         continue-on-error: true
         run: make checkdoc
       - name: Byte Compile
-        run: make build
+        run: |
+          echo $(ls emacs-ci/ci-init/straight/build)
+          make build

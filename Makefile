@@ -24,7 +24,7 @@ bootstrap:
 install:
 	cd emacs-ci && emacs --batch --quick --load install.el
 
-build: install
+build:
 	cd emacs-ci && emacs --batch --quick --load build.el
 
 lint:

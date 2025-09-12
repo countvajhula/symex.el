@@ -27,7 +27,7 @@ help:
 	@echo "**All of these actions (aside from docs) take effect and are contained inside the emacs-ci/ folder --- they do not affect the system Emacs configuration.**"
 
 setup-ci:
-	git clone https://github.com/countvajhula/emacs-ci.git
+	git clone -b debug-2 https://github.com/countvajhula/emacs-ci.git
 
 clean:
 	cd emacs-ci && rm -rf ci-init
